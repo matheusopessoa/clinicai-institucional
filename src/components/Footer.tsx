@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -33,6 +34,12 @@ export const Footer = () => {
             >
               Suporte
             </a>
+            <Link 
+              to="/politica-de-privacidade"
+              className="text-muted-foreground hover:text-primary transition-smooth"
+            >
+              Política de Privacidade
+            </Link>
           </div>
 
           {/* Copyright */}
