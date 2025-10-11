@@ -17,6 +17,8 @@ const PrivacyPolicy = () => {
               <li>Dados de pacientes: informações fornecidas pelo profissional de saúde</li>
               <li>Conversas via WhatsApp entre o agente de IA e os pacientes</li>
               <li>Dados de uso da plataforma e histórico de atendimentos</li>
+              <li>Dados de pagamento</li>
+              <li>Dados de consulta que o profissional de saúde fornece</li>
             </ul>
           </section>
 
@@ -105,8 +107,8 @@ const PrivacyPolicy = () => {
               Para questões sobre esta Política de Privacidade ou sobre o tratamento de seus dados pessoais, entre em contato:
             </p>
             <ul className="list-none space-y-2">
-              <li>E-mail: privacidade@clinicai.io</li>
-              <li>WhatsApp: +55 11 99999-9999</li>
+              <li>E-mail: contato@clinicai.io</li>
+              <li>WhatsApp: +55 81 99240-8882</li>
               <li>Plataforma: app.clinicai.io</li>
             </ul>
           </section>
