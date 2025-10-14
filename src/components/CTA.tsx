@@ -3,7 +3,7 @@ import { MessageSquare, ArrowRight } from "lucide-react";
 
 export const CTA = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5511999999999?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
+    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
   };
 
   return (
