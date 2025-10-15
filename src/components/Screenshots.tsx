@@ -17,7 +17,7 @@ export const Screenshots = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
           {/* Sistema Dashboard */}
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-center">Plataforma de Gestão</h3>
@@ -37,21 +37,14 @@ export const Screenshots = () => {
           </div>
 
           {/* WhatsApp Conversation */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col justify-center">
             <h3 className="text-2xl font-semibold text-center">Conversa no WhatsApp</h3>
-            <div className="aspect-video rounded-2xl border-2 border-dashed border-accent/30 bg-secondary/30 flex items-center justify-center gradient-card shadow-card">
-              <div className="text-center space-y-2">
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto">
-                  <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                </div>
-                <p className="text-sm text-muted-foreground font-medium">
-                  Espaço para print da conversa
-                  <br />
-                  <span className="text-xs">(16:9)</span>
-                </p>
-              </div>
+            <div className="flex justify-center">
+              <img
+                src="/Sistema zap.jpg"
+                alt="Exemplo de conversa no WhatsApp com o ClinicAI"
+                className="max-h-[600px] w-auto rounded-2xl border-2 border-dashed border-accent/30 p-1 bg-secondary/30"
+              />
             </div>
             <p className="text-sm text-muted-foreground text-center">
               IA humanizada respondendo e agendando com naturalidade
