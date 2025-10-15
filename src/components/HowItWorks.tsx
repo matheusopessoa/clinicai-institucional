@@ -47,7 +47,7 @@ export const HowItWorks = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Como funciona o{" "}
+            Como implementar o{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               ClinicAI?
             </span>
@@ -112,12 +112,12 @@ export const HowItWorks = () => {
 
         {/* Additional info */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/20">
+          <a href="https://app.clinicai.io" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/20">
             <CheckCircle className="w-5 h-5 text-accent" />
             <span className="text-sm font-medium">
               Acesso à plataforma: <span className="text-accent font-bold">app.clinicai.io</span>
             </span>
-          </div>
+          </a>
         </div>
       </div>
     </section>

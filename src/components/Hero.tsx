@@ -3,7 +3,7 @@ import { MessageSquare, Sparkles } from "lucide-react";
 
 export const Hero = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5511999999999?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
+    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
   };
 
   return (
@@ -53,7 +53,7 @@ export const Hero = () => {
             <Button 
               size="xl" 
               variant="outline"
-              onClick={() => document.getElementById('como-funciona')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Ver como funciona
             </Button>
