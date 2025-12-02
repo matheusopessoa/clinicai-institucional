@@ -60,11 +60,7 @@ export const clinicInfoSchema = z.object({
 export const personalInfoSchema = z.object({
   full_name: z.string().min(2, 'Nome completo deve ter pelo menos 2 caracteres'),
   email: z.string().email('Email inválido'),
-  phone_number_id: z.string()
-    .refine((value) => {
-      const digitsOnly = value.replace(/\D/g, '');
-      return digitsOnly.length >= 10;
-    }, 'Telefone deve ter pelo menos 10 dígitos'),
+  phone_number_id: z.string().min(10, 'Telefone é obrigatório'),
   password: z.string()
     .min(8, 'Senha deve ter pelo menos 8 caracteres')
     .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, 'Senha deve conter pelo menos uma letra minúscula, uma maiúscula e um número'),
@@ -103,10 +99,19 @@ export const registerUser = async (data: RegistrationData) => {
 // Utility function to format phone number (Brazilian format)
 export const formatPhoneNumber = (value: string) => {
   const cleaned = value.replace(/\D/g, '');
-  const match = cleaned.match(/^(\d{2})(\d{4,5})(\d{4})$/);
-  if (match) {
-    return `(${match[1]}) ${match[2]}-${match[3]}`;
+
+  if (cleaned.length <= 11) {
+    if (cleaned.length <= 2) {
+      return cleaned;
+    } else if (cleaned.length <= 6) {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2)}`;
+    } else if (cleaned.length <= 10) {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2, 6)}-${cleaned.slice(6)}`;
+    } else {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2, 7)}-${cleaned.slice(7)}`;
+    }
   }
+
   return value;
 };
 

@@ -83,14 +83,11 @@ export function RegisterWizard() {
 
       return hasBusinessName && hasBusinessType && !currentErrors.business_name && !currentErrors.business_type;
     } else if (currentStep === 2) {
-      // Validação do passo 2
+      // Validação do passo 2 - usando apenas validação do Zod
       const hasFullName = currentValues.full_name && currentValues.full_name.trim().length >= 2;
       const hasEmail = currentValues.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(currentValues.email);
-      // Valida telefone removendo todos os caracteres não numéricos
-      const phoneDigits = currentValues.phone_number_id ? currentValues.phone_number_id.replace(/\D/g, '') : '';
-      const hasPhone = phoneDigits.length >= 10;
+      const hasPhone = currentValues.phone_number_id && currentValues.phone_number_id.trim().length > 0;
       const hasPassword = currentValues.password && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(currentValues.password) && currentValues.password.length >= 8;
-
 
       return hasFullName && hasEmail && hasPhone && hasPassword &&
              !currentErrors.full_name && !currentErrors.email &&
@@ -283,12 +280,23 @@ export function RegisterWizard() {
                   <Label htmlFor="phone_number_id">Telefone *</Label>
                   <Input
                     id="phone_number_id"
-                    {...register("phone_number_id")}
+                    {...register("phone_number_id", {
+                      onChange: (e) => {
+                        const formatted = formatPhoneNumber(e.target.value);
+                        setValue("phone_number_id", formatted);
+                      },
+                      validate: (value) => {
+                        if (!value || value.trim() === '') {
+                          return 'Telefone é obrigatório';
+                        }
+                        const digitsOnly = value.replace(/\D/g, '');
+                        if (digitsOnly.length !== 10 && digitsOnly.length !== 11) {
+                          return 'Telefone deve ter 10 ou 11 dígitos (ex: (11) 99999-9999 ou (11) 9999-9999)';
+                        }
+                        return true;
+                      }
+                    })}
                     placeholder="(11) 99999-9999"
-                    onChange={(e) => {
-                      const formatted = formatPhoneNumber(e.target.value);
-                      setValue("phone_number_id", formatted);
-                    }}
                   />
                   {errors.phone_number_id && (
                     <p className="text-sm text-red-500">{errors.phone_number_id.message}</p>
