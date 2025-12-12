@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MessageSquare, ArrowRight } from "lucide-react";
+import { MessageSquare, ArrowRight, UserPlus, LogIn } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const CTA = () => {
   const handleWhatsAppClick = () => {
@@ -48,23 +49,49 @@ export const CTA = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="pt-4">
-              <Button 
-                size="xl" 
-                variant="gradient"
-                onClick={handleWhatsAppClick}
-                className="group"
-              >
-                <MessageSquare className="w-5 h-5" />
-                Falar com Especialista
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            {/* CTA Buttons */}
+            <div className="pt-4 space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  asChild
+                  size="xl"
+                  className="group"
+                >
+                  <Link to="/register">
+                    <UserPlus className="w-5 h-5" />
+                    Criar Conta Gratuita
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+
+                <Button
+                  size="xl"
+                  variant="outline"
+                  onClick={handleWhatsAppClick}
+                  className="group"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                  Falar com Especialista
+                </Button>
+              </div>
+
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground">
+                  Já tem uma conta?{" "}
+                  <Link
+                    to="/login"
+                    className="font-medium text-primary hover:text-primary/80 inline-flex items-center"
+                  >
+                    <LogIn className="w-4 h-4 mr-1" />
+                    Fazer login
+                  </Link>
+                </p>
+              </div>
             </div>
 
             {/* Trust message */}
             <p className="text-sm text-muted-foreground">
-              Resposta em até 2 horas úteis
+              Comece grátis • Sem cartão de crédito • Suporte em até 2 horas
             </p>
           </div>
         </div>
