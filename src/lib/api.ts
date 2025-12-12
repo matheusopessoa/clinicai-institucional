@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // API Configuration
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3000';
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 // API Client
 class ApiClient {
