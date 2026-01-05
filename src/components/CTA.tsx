@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const CTA = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
+    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
   };
 
   return (
@@ -28,7 +28,7 @@ export const CTA = () => {
                 Pronto para transformar seu atendimento?
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Fale com nosso time comercial e descubra como o ClinicAI pode revolucionar 
+                Fale com nosso time comercial e descubra como o Sous Clinic pode revolucionar 
                 a gestão dos seus pacientes em apenas 7 dias.
               </p>
             </div>

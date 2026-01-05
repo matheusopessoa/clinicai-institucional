@@ -1,13 +1,13 @@
-# ClinicAI - Site Institucional
+# Sous Clinic - Site Institucional
 
-Site institucional do ClinicAI com sistema de registro e onboarding.
+Site institucional do Sous Clinic com sistema de registro e onboarding.
 
 ## 🚀 Funcionalidades
 
 - **Página de Vendas**: Landing page otimizada para conversão
 - **Sistema de Registro**: Wizard de 2 passos para criação de conta
 - **Verificação de Email**: Página dedicada para verificação
-- **Redirecionamentos**: Integração com app.clinicai.io
+- **Redirecionamentos**: Integração com app.sousclinic.com
 
 ## 🛠️ Configuração
 
@@ -30,7 +30,7 @@ Crie um arquivo `.env.local` na raiz do projeto:
 VITE_SERVER_URL=http://localhost:3000
 
 # App Configuration
-VITE_APP_NAME=ClinicAI
+VITE_APP_NAME=Sous Clinic
 ```
 
 ### 3. Executar o Projeto
@@ -64,7 +64,7 @@ npm run build
 ### Após Registro:
 1. ✅ Email com código de 6 dígitos enviado automaticamente
 2. 🔄 Redirecionamento para `/verify-email-code` com email nos parâmetros
-3. 🎯 Usuário insere código → Conta ativada → Redirecionamento para app.clinicai.io
+3. 🎯 Usuário insere código → Conta ativada → Redirecionamento para app.sousclinic.com
 
 ## 🏗️ Arquitetura
 
@@ -77,7 +77,7 @@ npm run build
 ### Rotas
 - `/` - Página inicial
 - `/register` - Página de registro com wizard
-- `/login` - Página de login (redireciona para app.clinicai.io)
+- `/login` - Página de login (redireciona para app.sousclinic.com)
 - `/verify-email` - Tela de confirmação de email enviado
 - `/verify-email-code` - Tela para inserir código de verificação
 

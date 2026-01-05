@@ -29,7 +29,7 @@ const VerifyEmail = () => {
   };
 
   const handleContinueToApp = () => {
-    window.location.href = "https://app.clinicai.io";
+    window.location.href = "https://app.sousclinic.com";
   };
 
   if (!email) {
@@ -62,7 +62,7 @@ const VerifyEmail = () => {
     <div className="min-h-screen bg-muted/50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-foreground">ClinicAI</h1>
+          <h1 className="text-3xl font-bold text-foreground">Sous Clinic</h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Sistema de gerenciamento de relacionamento com clientes
           </p>
@@ -99,7 +99,7 @@ const VerifyEmail = () => {
               <div className="space-y-2">
                 <CheckCircle className="w-5 h-5 text-green-600 mx-auto" />
                 <p className="text-sm text-muted-foreground">
-                  <strong>3.</strong> Você será redirecionado para o ClinicAI
+                  <strong>3.</strong> Você será redirecionado para o Sous Clinic
                 </p>
               </div>
             </div>
@@ -142,7 +142,7 @@ const VerifyEmail = () => {
                 onClick={handleContinueToApp}
                 className="w-full"
               >
-                Ir para o ClinicAI
+                Ir para o Sous Clinic
               </Button>
             </div>
           </CardContent>
@@ -150,7 +150,7 @@ const VerifyEmail = () => {
 
         <div className="text-center">
           <p className="text-xs text-muted-foreground">
-            © 2025 ClinicAI. Todos os direitos reservados.
+            © 2025 Sous Clinic. Todos os direitos reservados.
           </p>
         </div>
       </div>

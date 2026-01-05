@@ -9,7 +9,7 @@ export const Screenshots = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Veja o{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              ClinicAI em ação
+              Sous Clinic em ação
             </span>
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -42,7 +42,7 @@ export const Screenshots = () => {
             <div className="flex justify-center">
               <img
                 src="/Sistema zap.jpg"
-                alt="Exemplo de conversa no WhatsApp com o ClinicAI"
+                alt="Exemplo de conversa no WhatsApp com o Sous Clinic"
                 className="max-h-[600px] w-auto rounded-2xl border-2 border-dashed border-accent/30 p-1 bg-secondary/30"
               />
             </div>
