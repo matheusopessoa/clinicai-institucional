@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
           <section>
             <h2 className="text-2xl font-semibold text-foreground mb-4">1. Informações que Coletamos</h2>
             <p className="mb-4">
-              O ClinicAI coleta informações necessárias para fornecer nossos serviços de gestão de pacientes e atendimento automatizado via WhatsApp. Isso inclui:
+              O Sous Clinic coleta informações necessárias para fornecer nossos serviços de gestão de pacientes e atendimento automatizado via WhatsApp. Isso inclui:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Dados de cadastro: nome, e-mail, telefone e informações profissionais</li>
@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
               <li>Quando necessário para prestar os serviços (ex: integração com WhatsApp)</li>
               <li>Para cumprir obrigações legais ou regulatórias</li>
               <li>Com seu consentimento explícito</li>
-              <li>Para proteger os direitos e segurança do ClinicAI e seus usuários</li>
+              <li>Para proteger os direitos e segurança do Sous Clinic e seus usuários</li>
             </ul>
           </section>
 
@@ -107,9 +107,9 @@ const PrivacyPolicy = () => {
               Para questões sobre esta Política de Privacidade ou sobre o tratamento de seus dados pessoais, entre em contato:
             </p>
             <ul className="list-none space-y-2">
-              <li>E-mail: contato@clinicai.io</li>
+              <li>E-mail: contato@sousclinic.com</li>
               <li>WhatsApp: +55 81 99240-8882</li>
-              <li>Plataforma: app.clinicai.io</li>
+              <li>Plataforma: app.sousclinic.com</li>
             </ul>
           </section>
 

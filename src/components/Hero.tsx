@@ -3,7 +3,7 @@ import { MessageSquare, Sparkles } from "lucide-react";
 
 export const Hero = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o ClinicAI', '_blank');
+    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
   };
 
   return (

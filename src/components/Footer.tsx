@@ -9,7 +9,7 @@ export const Footer = () => {
           {/* Logo and tagline */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              ClinicAI
+              Sous Clinic
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
               Gestão Inteligente de Pacientes
@@ -19,7 +19,7 @@ export const Footer = () => {
           {/* Links */}
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             <a 
-              href="https://app.clinicai.io" 
+              href="https://app.sousclinic.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-smooth"
@@ -51,7 +51,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border/30 text-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} ClinicAI. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Sous Clinic. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

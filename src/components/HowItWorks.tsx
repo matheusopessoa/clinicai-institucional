@@ -10,7 +10,7 @@ const steps = [
   {
     icon: Phone,
     title: "Entre em Contato",
-    description: "Fale conosco pelo WhatsApp e demonstre interesse no ClinicAI.",
+    description: "Fale conosco pelo WhatsApp e demonstre interesse no Sous Clinic.",
     hasInfo: false
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     title: "Acesso à Plataforma",
     description: "Receba acesso à plataforma de gerenciamento conectada ao agente. Enquanto a IA é preparada, você já pode cadastrar consultas antigas e aproveitar nosso controle financeiro e histórico de pacientes.",
     hasInfo: true,
-    infoContent: "Durante os dias de preparação da IA, você terá acesso completo à plataforma app.clinicai.io. Este é o momento ideal para: migrar suas consultas históricas, configurar seu controle financeiro, organizar o cadastro de pacientes e se familiarizar com todas as ferramentas de gestão."
+    infoContent: "Durante os dias de preparação da IA, você terá acesso completo à plataforma app.sousclinic.com. Este é o momento ideal para: migrar suas consultas históricas, configurar seu controle financeiro, organizar o cadastro de pacientes e se familiarizar com todas as ferramentas de gestão."
   },
   {
     icon: Rocket,
@@ -49,7 +49,7 @@ export const HowItWorks = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Como implementar o{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              ClinicAI?
+              Sous Clinic?
             </span>
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -112,10 +112,10 @@ export const HowItWorks = () => {
 
         {/* Additional info */}
         <div className="mt-16 text-center">
-          <a href="https://app.clinicai.io" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/20">
+          <a href="https://app.sousclinic.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/20">
             <CheckCircle className="w-5 h-5 text-accent" />
             <span className="text-sm font-medium">
-              Acesso à plataforma: <span className="text-accent font-bold">app.clinicai.io</span>
+              Acesso à plataforma: <span className="text-accent font-bold">app.sousclinic.com</span>
             </span>
           </a>
         </div>
