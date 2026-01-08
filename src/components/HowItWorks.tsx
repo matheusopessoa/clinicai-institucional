@@ -7,32 +7,26 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 const steps = [
   {
     icon: CreditCard,
-    title: "Escolha seu Plano",
-    description: "Cadastre-se na plataforma, selecione o plano ideal para sua clínica e inicie a transformação digital.",
+    title: "Cadastre-se na Plataforma",
+    description: "Cadastre-se na plataforma, faça o pagamento ou contato nosso suporte para entender melhor o processo de implementação e sobre o sistema.",
     hasInfo: false
   },
   {
     icon: Settings,
     title: "Configuração Personalizada",
-    description: "Nossa equipe agenda uma reunião para captar suas informações e treinar a IA no seu estilo.",
+    description: "Nossa equipe agenda uma reunião para planejar com você a implementação da plataforma na sua clínica.",
     hasInfo: false
   },
   {
     icon: Monitor,
-    title: "Acesso Imediato",
-    description: "Enquanto a IA é preparada, você já pode cadastrar consultas antigas, organizar os serviços e histórico de pacientes.",
+    title: "Migração de Dados",
+    description: "Já podemos migrar os dados e cadastrar suas consultas antigas, organizar os serviços e histórico de pacientes.",
     hasInfo: false
   },
   {
     icon: Rocket,
-    title: "IA Pronta em 7 Dias",
-    description: "Seu agente inteligente fica disponível em até 7 dias, já integrado ao seu número atual.",
-    hasInfo: false
-  },
-  {
-    icon: CheckCircle,
-    title: "Comece a Atender 24/7",
-    description: "Seus pacientes são atendidos automaticamente, enquanto você acompanha tudo pela plataforma.",
+    title: "Acesso a Plataforma",
+    description: "Você terá acesso a plataforma com todas as funcionalidades para gerenciar sua clínica.",
     hasInfo: false
   }
 ];
