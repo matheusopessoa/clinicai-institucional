@@ -46,7 +46,7 @@ export const Pricing = () => {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Monitoramento Ativo:</strong> A IA entra em contato para verificar a adesão à medicação e evolução do quadro
+                    <strong className="text-foreground">Pós atendimento e Monitoramento Ativo:</strong> A IA entra em contato para verificar a evolução do quadro.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -54,7 +54,7 @@ export const Pricing = () => {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Pós atendimento:</strong> Acompanhe quem está tomando o remédio e como está a evolução do paciente
+                    <strong className="text-foreground">Respostas Humanizadas:</strong> Comunicação natural e empática, ideal para atender o paciente de forma personalizada e humanizada.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -62,7 +62,7 @@ export const Pricing = () => {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Respostas Humanizadas:</strong> Comunicação natural e empática, treinada especificamente para seu estilo
+                    <strong className="text-foreground">Disponível 24/7:</strong> Seus pacientes são atendidos a qualquer hora.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -70,7 +70,7 @@ export const Pricing = () => {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Disponível 24/7:</strong> Seus pacientes são atendidos a qualquer hora
+                    <strong className="text-foreground">Gestão Completa:</strong> Sistema robusto para gerenciar todos os dados dos seus pacientes.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -78,15 +78,7 @@ export const Pricing = () => {
                     <Check className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Gestão Completa:</strong> Sistema robusto para gerenciar todos os dados dos seus pacientes
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-accent" />
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Rápida Implementação:</strong> Agente pronto em até 7 dias, já integrado ao seu número de WhatsApp
+                    <strong className="text-foreground">Rápida Implementação:</strong> Sistema implementado e sua equipe treinado em poucos dias, com pouco mínimo esforço do seu time.
                   </p>
                 </div>
               </div>

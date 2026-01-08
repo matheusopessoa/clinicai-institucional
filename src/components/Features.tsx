@@ -7,33 +7,33 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 const features = [
   {
     icon: Activity,
-    title: "Monitoramento Ativo",
-    description: "A IA entra em contato para verificar a adesão à medicação e evolução do quadro, não apenas espera o paciente chamar."
+    title: "Confirmação de Visita",
+    description: "Entramos em contato com o paciente para confirmar a ida para a consulta e caso seja cancelada, deixamos isso em destaque na plataforma para que você possa reagendar. Isso reduz as faltas e aumenta a lucratividade da sua clínica."
   },
   {
     icon: Eye,
     title: "Pós atendimento",
-    description: "Saiba exatamente o que acontece após a porta fechar. Quem está tomando o remédio, como está a evolução do paciente."
+    description: "Saiba exatamente o que acontece após o paciente sair da sua clínica. Você saberá exatamente quais pacientes não estão evoluindo e precisam voltar para uma nova consulta, o motivo e até mesmo os sintomas que eles estão apresentando."
   },
   {
     icon: Brain,
     title: "Respostas Humanizadas",
-    description: "Comunicação natural e empática, treinada especificamente para seu estilo de atendimento."
-  },
-  {
-    icon: Clock,
-    title: "Disponível 24/7",
-    description: "Seus pacientes são atendidos a qualquer hora, mesmo quando você não pode responder."
+    description: "Comunicação natural e empática, ideal para atender o paciente de forma personalizada e humanizada."
   },
   {
     icon: Shield,
     title: "Gestão Completa",
-    description: "Sistema robusto para gerenciar todos os dados dos seus pacientes em um só lugar."
+    description: "Sistema robusto para gerenciar todos os dados dos seus pacientes, profissionais e consultas em um só lugar."
+  },
+  {
+    icon: Shield,
+    title: "Multi-Acesso",
+    description: "Plataforma pode ser usada por vários profissionais da sua clínica, cada um com seu próprio login e senha. Além, é claro, da conta principal da clínica, com visão de todos agendamentos e financeiro."
   },
   {
     icon: Zap,
     title: "Rápida Implementação",
-    description: "Agente pronto em até 7 dias, já integrado ao seu número de WhatsApp da clínica."
+    description: "Sistema implementado em poucos dias, com pouco esforço de sua equipe. Nós migramos os dados e treinamos a sua equipe para utilizar a plataforma."
   }
 ];
 
