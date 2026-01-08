@@ -1,16 +1,14 @@
-import { Phone, Settings, Rocket, CheckCircle, Monitor, Info } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { CreditCard, Settings, Monitor, Rocket, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
 const steps = [
   {
-    icon: Phone,
-    title: "Entre em Contato",
-    description: "Fale conosco pelo WhatsApp e demonstre interesse no Sous Clinic.",
+    icon: CreditCard,
+    title: "Escolha seu Plano",
+    description: "Cadastre-se na plataforma, selecione o plano ideal para sua clínica e inicie a transformação digital.",
     hasInfo: false
   },
   {
@@ -21,10 +19,9 @@ const steps = [
   },
   {
     icon: Monitor,
-    title: "Acesso à Plataforma",
-    description: "Receba acesso à plataforma de gerenciamento conectada ao agente. Enquanto a IA é preparada, você já pode cadastrar consultas antigas e aproveitar nosso controle financeiro e histórico de pacientes.",
-    hasInfo: true,
-    infoContent: "Durante os dias de preparação da IA, você terá acesso completo à plataforma app.sousclinic.com. Este é o momento ideal para: migrar suas consultas históricas, configurar seu controle financeiro, organizar o cadastro de pacientes e se familiarizar com todas as ferramentas de gestão."
+    title: "Acesso Imediato",
+    description: "Enquanto a IA é preparada, você já pode cadastrar consultas antigas, organizar os serviços e histórico de pacientes.",
+    hasInfo: false
   },
   {
     icon: Rocket,
@@ -42,85 +39,80 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <TooltipProvider>
     <section id="como-funciona" className="py-24 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Como implementar o{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Sous Clinic?
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Implementação simples e rápida, sem complicação técnica.
-          </p>
-        </div>
+        <AnimateOnScroll animation="fadeInUp" delay={0}>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Como implementar
+            </h2>
+          </div>
+        </AnimateOnScroll>
 
         <div className="max-w-5xl mx-auto">
           <div className="grid gap-8">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={index} className="flex gap-6 items-start group">
-                  {/* Step number and icon */}
-                  <div className="flex-shrink-0">
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
-                        <Icon className="w-8 h-8 text-primary-foreground" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold shadow-lg">
-                        {index + 1}
+                <AnimateOnScroll
+                  key={index}
+                  animation="fadeInLeft"
+                  delay={index * 150}
+                  duration={600}
+                >
+                  <div className="flex gap-6 items-start group">
+                    {/* Step number and icon */}
+                    <div className="flex-shrink-0">
+                      <div className="relative">
+                        <div className="w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
+                          <Icon className="w-8 h-8 text-primary-foreground" />
+                        </div>
+                        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold shadow-lg">
+                          {index + 1}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="flex-1 gradient-card p-6 rounded-2xl border border-border/50 shadow-card group-hover:shadow-glow transition-smooth">
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
-                        <p className="text-muted-foreground text-lg leading-relaxed">
-                          {step.description}
-                        </p>
+                    {/* Content */}
+                    <div className="flex-1 gradient-card p-6 rounded-2xl border border-border/50 shadow-card group-hover:shadow-glow transition-smooth">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
+                          <p className="text-muted-foreground text-lg leading-relaxed">
+                            {step.description}
+                          </p>
+                        </div>
                       </div>
-                      
-                      {step.hasInfo && (
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <button className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 hover:bg-accent/30 flex items-center justify-center transition-smooth group/info">
-                              <Info className="w-4 h-4 text-accent group-hover/info:scale-110 transition-transform" />
-                            </button>
-                          </TooltipTrigger>
-                          <TooltipContent side="left" className="max-w-xs p-4 gradient-card border-accent/20">
-                            <p className="text-sm leading-relaxed">{step.infoContent}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      )}
                     </div>
-                  </div>
 
-                  {/* Connecting line */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-8 mt-20 w-0.5 h-8 bg-gradient-to-b from-primary to-accent opacity-30" />
-                  )}
-                </div>
+                    {/* Connecting line */}
+                    {index < steps.length - 1 && (
+                      <div className="absolute left-8 mt-20 w-0.5 h-8 bg-gradient-to-b from-primary to-accent opacity-30" />
+                    )}
+                  </div>
+                </AnimateOnScroll>
               );
             })}
           </div>
         </div>
 
-        {/* Additional info */}
-        <div className="mt-16 text-center">
-          <a href="https://app.sousclinic.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 border border-accent/20">
-            <CheckCircle className="w-5 h-5 text-accent" />
-            <span className="text-sm font-medium">
-              Acesso à plataforma: <span className="text-accent font-bold">app.sousclinic.com</span>
-            </span>
-          </a>
-        </div>
+        {/* CTA */}
+        <AnimateOnScroll animation="fadeInUp" delay={750}>
+          <div className="text-center mt-16">
+            <Button
+              asChild
+              size="lg"
+              variant="gradient"
+              className="group"
+            >
+              <Link to="/register">
+                Começar implementação
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
-    </TooltipProvider>
   );
 };

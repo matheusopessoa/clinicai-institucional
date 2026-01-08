@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Sparkles } from "lucide-react";
+import { MessageSquare } from "lucide-react";
+import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
 export const Hero = () => {
   const handleWhatsAppClick = () => {
@@ -7,74 +8,47 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 gradient-hero" />
+    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24 pb-8 md:pb-12">
+      {/* Background - mais limpo, sem orbs animados */}
+      <div className="absolute inset-0 bg-background" />
       
-      {/* Animated orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-700" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">
-              Atendimento Inteligente 24/7
-            </span>
-          </div>
+      <div className="container mx-auto px-4 relative z-10 flex flex-col justify-center min-h-[90vh]">
+        <AnimateOnScroll animation="fadeInUp" delay={0} duration={700}>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            {/* Main heading - estilo minimalista como na imagem */}
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Não deixe seu paciente{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                desamparado
+              </span>{" "}
+              após a consulta
+            </h1>
 
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Gerencie seus pacientes com{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Inteligência Artificial
-            </span>
-          </h1>
+            {/* Subheading - Primeiro parágrafo */}
+            <p className="text-lg md:text-xl text-muted-foreground max-w-1xl mx-auto leading-relaxed">
+              Nosso sistema{" "}
+              <span className="font-semibold text-foreground">gerencia toda a sua clínica</span> e{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">
+                transforma a prescrição em acompanhamento automático
+              </span>{" "}
+              no WhatsApp, garantindo{" "}
+              <span className="font-semibold text-foreground">adesão ao tratamento e fidelidade</span>.
+            </p>
 
-          {/* Subheading */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Sistema completo integrado a uma IA no seu WhatsApp que agenda consultas, 
-            tira dúvidas e responde seus pacientes de forma humanizada, 24 horas por dia.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
-              size="xl" 
-              variant="gradient"
-              onClick={handleWhatsAppClick}
-              className="group"
-            >
-              <MessageSquare className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Falar com Especialista
-            </Button>
-            <Button 
-              size="xl" 
-              variant="outline"
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Ver como funciona
-            </Button>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 pt-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-accent" />
-              <span>Disponível em 7 dias</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary" />
-              <span>Sem setup técnico</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-accent" />
-              <span>Respostas humanizadas</span>
+            {/* CTA Button - único botão centralizado como na imagem */}
+            <div className="flex justify-center items-center pt-6">
+              <Button 
+                size="xl" 
+                variant="gradient"
+                onClick={handleWhatsAppClick}
+                className="group px-8 py-6 text-lg"
+              >
+                <MessageSquare className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Fale com um especialista
+              </Button>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
