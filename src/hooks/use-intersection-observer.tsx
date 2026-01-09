@@ -47,3 +47,5 @@ export const useIntersectionObserver = (
   return { elementRef, isIntersecting, hasAnimated };
 };
 
+
+

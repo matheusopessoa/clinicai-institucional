@@ -37,7 +37,19 @@ const faqs = [
   {
     question: "É possível fazer a transferência dos pacientes de um outro software para a Sous Clinic?",
     answer: "Sim, é possível transferir seus pacientes para o nosso sistema. No entanto, é necessário saber qual software está sendo usado atualmente, e que ele permita gerar algum documento ou resgatar todas as informações do paciente de uma vez. Está com dúvida sobre a transferência de dados, entre em contato com o nosso suporte e encontraremos a melhor solução."
-  }
+  },
+  {
+    question: "É possível fazer prescrição dentro do Sous Clinic?",
+    answer: "Sim! Nossa plataforma possui um prontuário eletrônico completo onde você gera prescrições de medicamentos e anotações clínicas de forma integrada. O sistema formata o documento, e para validade farmacêutica, basta imprimir, assinar e carimbar conforme seu conselho regional. O grande diferencial é que essa prescrição alimenta nossa IA para iniciar o monitoramento pós-consulta."
+  },
+{
+    question: "Na minha Clínica existe mais de um profissional, é possível usar o Sous Clinic?",
+    answer: "Com certeza. O Sous Clinic foi desenhado para escalar. Cada profissional de saúde possui um login individual com acesso exclusivo aos seus pacientes, garantindo sigilo ético e organização. Paralelamente, oferecemos um perfil administrativo para a recepção/gestão, que permite visualizar a agenda global e gerenciar o fluxo de atendimento de todos os profissionais simultaneamente."
+},
+{
+    question: "Como funciona o pagamento?",
+    answer: "Trabalhamos com um modelo de assinatura. Você escolhe o plano ideal e o pagamento é realizado via cartão de crédito na modalidade recorrente, ou seja, debita apenas a mensalidade sem comprometer o limite total do seu cartão. O contrato garante o acesso a todas as funcionalidades, atualizações da IA e suporte técnico pelo período de 12 meses."
+}
 ];
 
 export const FAQ = () => {
