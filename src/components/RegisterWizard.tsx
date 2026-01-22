@@ -85,7 +85,7 @@ export function RegisterWizard() {
     } else if (currentStep === 2) {
       // Validação do passo 2 - usando apenas validação do Zod
       const hasFullName = currentValues.full_name && currentValues.full_name.trim().length >= 2;
-      const hasEmail = currentValues.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(currentValues.email);
+      const hasEmail = currentValues.email && /^[^\s@]+@[^\s@]+$/.test(currentValues.email);
       const hasPhone = currentValues.phone_number_id && currentValues.phone_number_id.trim().length > 0;
       const hasPassword = currentValues.password && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(currentValues.password) && currentValues.password.length >= 8;
 
@@ -267,7 +267,7 @@ export function RegisterWizard() {
                   <Label htmlFor="email">Email Profissional *</Label>
                   <Input
                     id="email"
-                    type="email"
+                    type="text"
                     {...register("email")}
                     placeholder="seu@email.com"
                   />

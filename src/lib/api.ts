@@ -59,7 +59,7 @@ export const clinicInfoSchema = z.object({
 
 export const personalInfoSchema = z.object({
   full_name: z.string().min(2, 'Nome completo deve ter pelo menos 2 caracteres'),
-  email: z.string().email('Email inválido'),
+  email: z.string().regex(/^[^\s@]+@[^\s@]+$/, 'Email inválido'),
   phone_number_id: z.string().min(10, 'Telefone é obrigatório'),
   password: z.string()
     .min(8, 'Senha deve ter pelo menos 8 caracteres')
