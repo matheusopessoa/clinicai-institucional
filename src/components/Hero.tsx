@@ -4,7 +4,7 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
 export const Hero = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/‪+5581995497487‬?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
+    window.open('https://wa.me/+5581995497487?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
   };
 
   return (
