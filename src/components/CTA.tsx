@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const CTA = () => {
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/+5581992408882?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
+    window.open('https://wa.me/+5581995497487?text=Olá! Gostaria de conhecer o Sous Clinic', '_blank');
   };
 
   return (

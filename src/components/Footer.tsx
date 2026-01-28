@@ -27,7 +27,7 @@ export const Footer = () => {
               Acessar Plataforma
             </a>
             <a 
-              href="https://wa.me/5511999999999" 
+              href="https://wa.me/+5581995497487?text=Olá! Gostaria de conhecer o Sous Clinic" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-smooth"
