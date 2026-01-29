@@ -42,8 +42,6 @@ export const Hero = () => {
                   <Sparkles className="w-4 h-4 text-primary/60" />
                   Planos a partir de <strong className="text-foreground">R$ 149,90/mês</strong>
                 </span>
-                <span className="hidden sm:inline opacity-30">•</span>
-                <span>Agendamento online opcional</span>
               </div>
             </div>
 
