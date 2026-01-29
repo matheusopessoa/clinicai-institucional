@@ -1,4 +1,4 @@
-import { Activity, Eye, Brain, Clock, Shield, Zap } from "lucide-react";
+import { Activity, Eye, Brain, Clock, Shield, Zap, TrendingUp, Users, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -6,34 +6,34 @@ import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
 const features = [
   {
-    icon: Activity,
-    title: "Confirmação de Visita",
-    description: "Entramos em contato com o paciente para confirmar a ida para a consulta e caso seja cancelada, deixamos isso em destaque na plataforma para que você possa reagendar. Isso reduz as faltas e aumenta a lucratividade da sua clínica."
+    icon: Shield,
+    title: "Gestão e Organização",
+    description: "Centralize agenda, prontuários e financeiro em um só lugar. A base sólida que sua clínica precisa para operar com excelência."
   },
   {
     icon: Eye,
-    title: "Pós atendimento",
-    description: "Saiba exatamente o que acontece após o paciente sair da sua clínica. Você saberá exatamente quais pacientes não estão evoluindo e precisam voltar para uma nova consulta, o motivo e até mesmo os sintomas que eles estão apresentando."
+    title: "Acompanhamento Inteligente",
+    description: "Saiba exatamente o que acontece após o paciente sair da consulta. IA que monitora a evolução e garante que ninguém fique sem cuidado."
   },
   {
-    icon: Brain,
-    title: "Respostas Humanizadas",
-    description: "Comunicação natural e empática, ideal para atender o paciente de forma personalizada e humanizada."
+    icon: Heart,
+    title: "Fidelização de Pacientes",
+    description: "Crie um vínculo inquebrável através de um contato humanizado e proativo via WhatsApp, aumentando as taxas de retorno."
   },
   {
-    icon: Shield,
-    title: "Gestão Completa",
-    description: "Sistema robusto para gerenciar todos os dados dos seus pacientes, profissionais e consultas em um só lugar."
+    icon: TrendingUp,
+    title: "Crescimento Acelerado",
+    description: "Capture novos agendamentos 24 horas por dia com sua própria agenda online, reduzindo a carga de trabalho da recepção."
   },
   {
-    icon: Shield,
-    title: "Multi-Acesso",
-    description: "Plataforma pode ser usada por vários profissionais da sua clínica, cada um com seu próprio login e senha. Além, é claro, da conta principal da clínica, com visão de todos agendamentos e financeiro."
+    icon: Users,
+    title: "Multi-Acesso Ético",
+    description: "Logins individuais para cada profissional com sigilo absoluto, além de uma visão administrativa global para o gestor."
   },
   {
     icon: Zap,
-    title: "Rápida Implementação",
-    description: "Sistema implementado em poucos dias, com pouco esforço de sua equipe. Nós migramos os dados e treinamos a sua equipe para utilizar a plataforma."
+    title: "Implementação Express",
+    description: "Migramos seus dados e treinamos sua equipe em tempo recorde. Tecnologia de ponta sem a complexidade de sistemas antigos."
   }
 ];
 

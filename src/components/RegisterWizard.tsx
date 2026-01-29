@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSearchParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChevronLeft, ChevronRight, Check, Building, User, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
@@ -42,6 +43,8 @@ const steps = [
 ];
 
 export function RegisterWizard() {
+  const [searchParams] = useSearchParams();
+  const plan = searchParams.get("plan");
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -115,8 +118,9 @@ export function RegisterWizard() {
     try {
       await registerUser(data);
 
-      // Redirecionar diretamente para verificação de email
-      window.location.href = `/verify-email-code?email=${encodeURIComponent(data.email)}`;
+      // Redirecionar diretamente para verificação de email, mantendo o plano na URL
+      const planParam = plan ? `&plan=${plan}` : "";
+      window.location.href = `/verify-email-code?email=${encodeURIComponent(data.email)}${planParam}`;
 
     } catch (error) {
       toast({
@@ -130,9 +134,9 @@ export function RegisterWizard() {
 
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader className="space-y-4">
-        <div className="flex items-center space-x-4">
+    <Card className="w-full max-w-md mx-auto border-border/50 shadow-xl overflow-hidden">
+      <CardHeader className="space-y-4 bg-muted/20 border-b border-border/50 pb-6">
+        <div className="flex items-center justify-between">
           <div className="flex space-x-2">
             {steps.map((step, index) => {
               const Icon = step.icon;
@@ -142,11 +146,11 @@ export function RegisterWizard() {
               return (
                 <div key={step.id} className="flex items-center">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isCompleted
-                        ? "bg-green-500 text-white"
+                        ? "bg-green-500 text-white shadow-sm"
                         : isCurrent
-                        ? "bg-primary text-primary-foreground"
+                        ? "bg-primary text-primary-foreground shadow-md scale-110"
                         : "bg-muted text-muted-foreground"
                     }`}
                   >
@@ -158,7 +162,7 @@ export function RegisterWizard() {
                   </div>
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-8 h-0.5 ${
+                      className={`w-8 h-0.5 mx-1 transition-colors duration-300 ${
                         currentStep > step.id ? "bg-green-500" : "bg-muted"
                       }`}
                     />
@@ -167,44 +171,48 @@ export function RegisterWizard() {
               );
             })}
           </div>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+            Passo {currentStep} de {steps.length}
+          </span>
         </div>
 
         <div>
-          <CardTitle className="text-xl">
+          <CardTitle className="text-xl font-bold">
             {steps[currentStep - 1].title}
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-sm">
             {steps[currentStep - 1].description}
           </CardDescription>
         </div>
 
-        <Progress value={progress} className="w-full" />
+        <Progress value={progress} className="h-1.5 w-full bg-muted" />
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="pt-6">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {currentStep === 1 && (
-            <div className="space-y-4">
+            <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
                 {/* Passo 1: Dados da Clínica */}
                 <div className="space-y-2">
-                  <Label htmlFor="business_name">Nome Fantasia *</Label>
+                  <Label htmlFor="business_name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Nome da Clínica *</Label>
                   <Input
                     id="business_name"
                     {...register("business_name")}
                     placeholder="Ex: Clínica Saúde & Bem-Estar"
+                    className="h-11 border-border/60 focus:border-primary/50 transition-all"
                   />
                   {errors.business_name && (
-                    <p className="text-sm text-red-500">{errors.business_name.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.business_name.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="business_type">Tipo de Negócio *</Label>
+                  <Label htmlFor="business_type" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tipo de Negócio *</Label>
                   <Select
                     onValueChange={(value) => setValue("business_type", value as any)}
                     value={watchedValues.business_type}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="h-11 border-border/60">
                       <SelectValue placeholder="Selecione o tipo" />
                     </SelectTrigger>
                     <SelectContent>
@@ -216,68 +224,72 @@ export function RegisterWizard() {
                     </SelectContent>
                   </Select>
                   {errors.business_type && (
-                    <p className="text-sm text-red-500">{errors.business_type.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.business_type.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="specialty">Especialidade Principal</Label>
+                  <Label htmlFor="specialty" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Especialidade Principal</Label>
                   <Input
                     id="specialty"
                     {...register("specialty")}
                     placeholder="Ex: Cardiologia, Pediatria, etc."
+                    className="h-11 border-border/60"
                   />
                   {errors.specialty && (
-                    <p className="text-sm text-red-500">{errors.specialty.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.specialty.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="number_of_employees">Número de Funcionários</Label>
+                  <Label htmlFor="number_of_employees" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Número de Funcionários</Label>
                   <Input
                     id="number_of_employees"
                     type="number"
                     min="1"
                     {...register("number_of_employees", { valueAsNumber: true })}
                     placeholder="Ex: 5"
+                    className="h-11 border-border/60"
                   />
                   {errors.number_of_employees && (
-                    <p className="text-sm text-red-500">{errors.number_of_employees.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.number_of_employees.message}</p>
                   )}
                 </div>
               </div>
             )}
 
             {currentStep === 2 && (
-              <div className="space-y-4">
+              <div className="space-y-4 animate-in fade-in slide-in-from-right-4 duration-300">
                 {/* Passo 2: Dados Pessoais */}
                 <div className="space-y-2">
-                  <Label htmlFor="full_name">Nome Completo *</Label>
+                  <Label htmlFor="full_name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Nome Completo *</Label>
                   <Input
                     id="full_name"
                     {...register("full_name")}
                     placeholder="Seu nome completo"
+                    className="h-11 border-border/60"
                   />
                   {errors.full_name && (
-                    <p className="text-sm text-red-500">{errors.full_name.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.full_name.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Profissional *</Label>
+                  <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Email Profissional *</Label>
                   <Input
                     id="email"
                     type="text"
                     {...register("email")}
                     placeholder="seu@email.com"
+                    className="h-11 border-border/60"
                   />
                   {errors.email && (
-                    <p className="text-sm text-red-500">{errors.email.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.email.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone_number_id">Telefone *</Label>
+                  <Label htmlFor="phone_number_id" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Telefone *</Label>
                   <Input
                     id="phone_number_id"
                     {...register("phone_number_id", {
@@ -291,33 +303,35 @@ export function RegisterWizard() {
                         }
                         const digitsOnly = value.replace(/\D/g, '');
                         if (digitsOnly.length !== 10 && digitsOnly.length !== 11) {
-                          return 'Telefone deve ter 10 ou 11 dígitos (ex: (11) 99999-9999 ou (11) 9999-9999)';
+                          return 'Telefone deve ter 10 ou 11 dígitos';
                         }
                         return true;
                       }
                     })}
                     placeholder="(11) 99999-9999"
+                    className="h-11 border-border/60"
                   />
                   {errors.phone_number_id && (
-                    <p className="text-sm text-red-500">{errors.phone_number_id.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.phone_number_id.message}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="password">Senha *</Label>
+                  <Label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Senha *</Label>
                   <Input
                     id="password"
                     type="password"
                     {...register("password")}
                     placeholder="Mínimo 8 caracteres"
+                    className="h-11 border-border/60"
                   />
                   {errors.password && (
-                    <p className="text-sm text-red-500">{errors.password.message}</p>
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.password.message}</p>
                   )}
                 </div>
 
-                <Alert>
-                  <AlertDescription className="text-xs">
+                <Alert className="bg-muted/30 border-none py-2">
+                  <AlertDescription className="text-[10px] leading-relaxed text-muted-foreground">
                     A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula,
                     uma minúscula e um número.
                   </AlertDescription>
@@ -325,46 +339,66 @@ export function RegisterWizard() {
               </div>
             )}
 
-          <div className="flex justify-between pt-4">
-            {currentStep > 1 ? (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={handlePrevious}
-                disabled={isSubmitting}
-              >
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Voltar
-              </Button>
-            ) : (
-              <div />
+          <div className="flex flex-col space-y-4 pt-4">
+            <div className="flex gap-3">
+              {currentStep > 1 && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handlePrevious}
+                  disabled={isSubmitting}
+                  className="flex-1 h-12 border-border/60"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Voltar
+                </Button>
+              )}
+
+              {currentStep < steps.length ? (
+                <Button
+                  type="button"
+                  onClick={handleNext}
+                  disabled={!isCurrentStepValid() || isSubmitting}
+                  className="flex-[2] h-12 font-bold"
+                >
+                  Continuar cadastro
+                  <ChevronRight className="w-4 h-4 ml-2" />
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-[2] h-12 font-bold text-md"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Criando...
+                    </>
+                  ) : (
+                    plan ? "Continuar para ativação" : "Criar minha conta gratuita"
+                  )}
+                </Button>
+              )}
+            </div>
+
+            {currentStep === steps.length && (
+              <div className="text-center space-y-1 animate-in fade-in duration-500 delay-150">
+                <p className="text-[11px] font-medium text-muted-foreground">
+                  {plan ? "Crie sua conta e continue para ativação do plano." : "Acesso imediato à plataforma. Escolha seu plano depois."}
+                </p>
+                <p className="text-[10px] text-muted-foreground/60 italic">
+                  Sem compromisso. {plan ? "Você ativa ou cancela dentro do sistema." : "Teste gratuito disponível para todos os planos."}
+                </p>
+              </div>
             )}
 
-            {currentStep < steps.length ? (
-              <Button
-                type="button"
-                onClick={handleNext}
-                disabled={!isCurrentStepValid() || isSubmitting}
-              >
-                Próximo
-                <ChevronRight className="w-4 h-4 ml-2" />
-              </Button>
-            ) : (
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="min-w-[120px]"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Criando...
-                  </>
-                ) : (
-                  "Criar Conta"
-                )}
-              </Button>
-            )}
+            {/* Texto de segurança */}
+            <div className="text-center pt-2 border-t border-border/30 mt-2">
+              <p className="text-[10px] text-muted-foreground/70">
+                🔒 Seus dados estão protegidos e criptografados
+              </p>
+            </div>
           </div>
         </form>
       </CardContent>

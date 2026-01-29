@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, Sparkles } from "lucide-react";
 import { AnimateOnScroll } from "@/components/AnimateOnScroll";
 
 export const Hero = () => {
@@ -25,26 +25,46 @@ export const Hero = () => {
             </h1>
 
             {/* Subheading - Primeiro parágrafo */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-1xl mx-auto leading-relaxed">
-              Nosso sistema{" "}
-              <span className="font-semibold text-foreground">gerencia toda a sua clínica</span> e{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">
-                transforma a prescrição em acompanhamento automático
-              </span>{" "}
-              no WhatsApp, garantindo{" "}
-              <span className="font-semibold text-foreground">adesão ao tratamento e fidelidade</span>.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                Nosso sistema{" "}
+                <span className="font-semibold text-foreground">gerencia toda a sua clínica</span> e{" "}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold">
+                  transforma a prescrição em acompanhamento automático
+                </span>{" "}
+                no WhatsApp, garantindo{" "}
+                <span className="font-semibold text-foreground">adesão ao tratamento e fidelidade</span>.
+              </p>
+              
+              {/* Linha secundária de preços - SaaS Premium Style */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-sm text-muted-foreground/80">
+                <span className="flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-primary/60" />
+                  Planos a partir de <strong className="text-foreground">R$ 149,90/mês</strong>
+                </span>
+                <span className="hidden sm:inline opacity-30">•</span>
+                <span>Agendamento online opcional</span>
+              </div>
+            </div>
 
             {/* CTA Button - único botão centralizado como na imagem */}
-            <div className="flex justify-center items-center pt-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
               <Button 
                 size="xl" 
                 variant="gradient"
                 onClick={handleWhatsAppClick}
-                className="group px-8 py-6 text-lg"
+                className="group px-8 py-6 text-lg w-full sm:w-auto"
               >
                 <MessageSquare className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Fale com um especialista
+                Falar com um especialista
+              </Button>
+              <Button 
+                asChild
+                size="xl" 
+                variant="outline"
+                className="px-8 py-6 text-lg w-full sm:w-auto border-primary/20 hover:bg-primary/5"
+              >
+                <a href="/register">Começar agora</a>
               </Button>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { Alert, AlertDescription } from "../components/ui/alert";
-import { CheckCircle, Mail, AlertCircle, RefreshCw, ArrowLeft } from "lucide-react";
+import { CheckCircle, Mail, AlertCircle, RefreshCw, ArrowLeft, Sparkles } from "lucide-react";
 import { useToast } from "../hooks/use-toast";
 import { verifyEmailCode, resendVerificationCode } from "../lib/api";
 
@@ -14,6 +14,7 @@ const VerifyEmailCode = () => {
   const { toast } = useToast();
 
   const email = searchParams.get("email") || "";
+  const plan = searchParams.get("plan");
   const [code, setCode] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
   const [isResending, setIsResending] = useState(false);
@@ -39,11 +40,6 @@ const VerifyEmailCode = () => {
         title: "Email verificado!",
         description: "Sua conta foi ativada com sucesso.",
       });
-
-      // Redirect to app after 2 seconds
-      setTimeout(() => {
-        window.location.href = "https://app.sousclinic.com";
-      }, 2000);
 
     } catch (error) {
       toast({
@@ -91,18 +87,68 @@ const VerifyEmailCode = () => {
   };
 
   if (isVerified) {
+    const planInfo = {
+      pro: {
+        title: "Plano Profissional",
+        price: "R$ 299,90/mês",
+        color: "text-primary",
+        bg: "bg-primary/5",
+        border: "border-primary/20",
+        btnLabel: "Ativar Plano Profissional",
+      },
+      standard: {
+        title: "Plano Standard",
+        price: "R$ 149,90/mês",
+        color: "text-primary",
+        bg: "bg-primary/5",
+        border: "border-primary/20",
+        btnLabel: "Ativar Plano Standard",
+      },
+    };
+
+    const selectedPlan = plan === "pro" ? planInfo.pro : plan === "standard" ? planInfo.standard : null;
+
     return (
-      <div className="min-h-screen bg-muted/50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <Card className="w-full max-w-md mx-auto">
-          <CardContent className="pt-6">
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                <CheckCircle className="w-8 h-8 text-green-600" />
+      <div className="min-h-screen bg-muted/30 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <Card className="w-full max-w-md mx-auto border-border/50 shadow-2xl animate-in zoom-in-95 duration-500">
+          <CardContent className="pt-10 pb-10">
+            <div className="text-center space-y-6">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto shadow-inner">
+                <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-green-600">Conta verificada!</h3>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Você será redirecionado para o Sous Clinic...
+              
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold text-foreground tracking-tight">Conta criada com sucesso ✅</h3>
+                <p className="text-muted-foreground text-sm">
+                  Sua identidade foi confirmada. Agora ative seu plano para começar.
+                </p>
+              </div>
+
+              {selectedPlan && (
+                <div className={`rounded-2xl border ${selectedPlan.border} ${selectedPlan.bg} p-6 my-6 text-left`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Plano Selecionado</span>
+                    <div className="flex items-center gap-1.5 text-green-600 font-bold text-[10px] bg-green-50 px-2 py-0.5 rounded-full border border-green-100">
+                      <Sparkles className="w-3 h-3" />
+                      7 DIAS GRÁTIS
+                    </div>
+                  </div>
+                  <h4 className={`text-xl font-bold ${selectedPlan.color} mb-1`}>{selectedPlan.title}</h4>
+                  <p className="text-sm font-medium text-muted-foreground">{selectedPlan.price}</p>
+                </div>
+              )}
+
+              <div className="pt-4 space-y-4">
+                <Button 
+                  onClick={() => window.location.href = `https://app.sousclinic.com/dashboard/upgrade/${plan || 'pro'}`}
+                  size="lg"
+                  className="w-full h-14 text-md font-bold shadow-lg shadow-primary/20 rounded-2xl"
+                >
+                  {selectedPlan ? selectedPlan.btnLabel : "Ir para o Dashboard"}
+                </Button>
+                
+                <p className="text-[11px] text-muted-foreground">
+                  Você será redirecionado para o ambiente seguro do Sous Clinic.
                 </p>
               </div>
             </div>
