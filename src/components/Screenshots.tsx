@@ -21,19 +21,17 @@ export const Screenshots = () => {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto items-center">
           {/* Sistema Dashboard */}
           <AnimateOnScroll animation="fadeInLeft" delay={200}>
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-center">Plataforma de Gestão</h3>
-              <div className="aspect-video rounded-2xl border-2 border-dashed border-primary/30 bg-secondary/30 flex items-center justify-center gradient-card shadow-card overflow-hidden">
-                <video
-                  src="/Gravacao sistema.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
+              <div className="rounded-2xl border-2 border-dashed border-primary/30 bg-secondary/30 flex items-center justify-center gradient-card shadow-card overflow-hidden p-2">
+                <img 
+                  src="/dashboard.png" 
+                  alt="Sistema Dashboard" 
+                  className="w-full h-auto max-h-[500px] max-w-full object-contain"
+                  loading="eager"
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center">
@@ -48,13 +46,13 @@ export const Screenshots = () => {
               <h3 className="text-2xl font-semibold text-center">Conversa no WhatsApp</h3>
               <div className="flex justify-center">
                 <img
-                  src="/Sistema zap.jpg"
+                  src="/conversa-whatsapp.jpeg"
                   alt="Exemplo de conversa no WhatsApp com o Sous Clinic"
                   className="max-h-[600px] w-auto rounded-2xl border-2 border-dashed border-accent/30 p-1 bg-secondary/30"
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center">
-                IA humanizada respondendo e agendando com naturalidade
+                IA humanizada cuidando do pós-atendimento com naturalidade
               </p>
             </div>
           </AnimateOnScroll>
