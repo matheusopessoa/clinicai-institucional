@@ -81,7 +81,7 @@ export const Pricing = () => {
                     <Heart className="w-5 h-5 text-primary" />
                     <h3 className="text-2xl font-bold">Profissional</h3>
                   </div>
-                  <p className="text-primary font-medium text-sm mb-6">Tudo do Standard + fidelização automática com IA</p>
+                  <p className="text-primary font-medium text-sm mb-6">Tudo do Standard + Acompanhamento ativo pós-consulta com IA</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl md:text-5xl font-bold text-foreground">R$ 299,90</span>
                     <span className="text-muted-foreground">/mês</span>
