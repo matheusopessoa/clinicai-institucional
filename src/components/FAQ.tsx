@@ -54,23 +54,23 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24 relative bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <AnimateOnScroll animation="fadeInUp" delay={0}>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-6">
-              <HelpCircle className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-muted-foreground">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800/30 backdrop-blur-sm mb-6">
+              <HelpCircle className="w-4 h-4 text-rose-500" />
+              <span className="text-sm font-medium text-rose-600 dark:text-rose-400">
                 Perguntas Frequentes
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white">
               Dúvidas sobre o{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="font-serif italic bg-gradient-to-r from-rose-500 to-rose-400 bg-clip-text text-transparent">
                 Sous Clinic?
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-slate-600 dark:text-slate-400">
               Encontre respostas para as principais perguntas sobre nossa plataforma.
             </p>
           </div>
@@ -87,12 +87,12 @@ export const FAQ = () => {
               >
                 <AccordionItem
                   value={`item-${index}`}
-                  className="gradient-card p-6 rounded-2xl border border-border/50 shadow-card"
+                  className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline">
+                  <AccordionTrigger className="text-left font-semibold text-lg text-slate-900 dark:text-white hover:no-underline hover:text-rose-500 dark:hover:text-rose-400 transition-colors">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
+                  <AccordionContent className="text-slate-600 dark:text-slate-400 leading-relaxed pt-2">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
