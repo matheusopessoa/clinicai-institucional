@@ -152,27 +152,27 @@ export const Hero = () => {
                       isUser 
                       text="Oi! Está descamando um pouco, mas estou seguindo tudo! ❤️" 
                       time="09:18" 
-                      delay={2.0}
+                      delay={1.0}
                     />
                     
                     <ChatMessage  
                       text="Ótimo! Mas preciso saber: notou alguma área muito vermelha ou com 'pontadas' de dor?" 
                       time="09:42" 
-                      delay={3.5}
+                      delay={1.5}
                     />
                     
                     <ChatMessage 
                       isUser 
                       text="No queixo está ardendo bastante e ficou bem vermelho." 
                       time="09:43" 
-                      delay={5.5}
+                      delay={2}
                     />
 
                      {/* Mensagem Final */}
                      <ChatMessage  
                       text={<span>Entendi. <strong>Vou alertar a Dra. agora mesmo</strong>. Evite passar produtos na área!</span>} 
                       time="09:43" 
-                      delay={7.0}
+                      delay={2.5}
                     />
                   </div>
 
@@ -192,7 +192,7 @@ export const Hero = () => {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, x: -20 }} 
                 animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ delay: 7.2, duration: 0.5 }} 
+                transition={{ delay: 3.5, duration: 0.5 }} 
                 // A MÁGICA: 'right-[105%]' coloca ele colado na esquerda do container de 280px
                 className="absolute right-[105%] bottom-12 bg-white p-3 rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] border border-slate-100 w-[160px] z-20 hidden md:block"
               >
