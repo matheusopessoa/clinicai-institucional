@@ -200,7 +200,7 @@ export const Hero = () => {
                   <div className="p-1 rounded-md bg-rose-100 text-rose-600">
                     <Sparkles className="w-3 h-3" />
                   </div>
-                  <span className="text-[10px] font-bold text-slate-800">Triagem Ativa</span>
+                  <span className="text-[10px] font-bold text-slate-800">Alerta Ativo</span>
                 </div>
                 <p className="text-[12px] text-slate-600 leading-relaxed font-medium">
                   O sistema identificou o risco e alertou a profissional.
