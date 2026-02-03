@@ -145,6 +145,7 @@ export const Pricing = () => {
 
               <div className="space-y-4 mb-8 flex-grow">
                 <PlanFeature text="Agenda e gestão de pacientes" />
+                <PlanFeature text="Confirmação de comparecimento automático via Whatsapp" />
                 <PlanFeature text="Prontuário eletrônico completo" />
                 <PlanFeature text="Gestão financeira integrada" />
                 <PlanFeature text="Relatórios de atendimento" />
