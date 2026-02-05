@@ -13,13 +13,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     // Verifica se há um tema salvo no localStorage
     const savedTheme = localStorage.getItem("theme") as Theme;
-    if (savedTheme) {
+    if (savedTheme === "light" || savedTheme === "dark") {
       return savedTheme;
     }
-    // Verifica a preferência do sistema
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
+    // Tema padrão: claro
     return "light";
   });
 
