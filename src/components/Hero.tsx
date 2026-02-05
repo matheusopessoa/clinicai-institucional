@@ -157,21 +157,21 @@ export const Hero = () => {
                     
                     <ChatMessage  
                       text="Ótimo! Mas preciso saber: notou alguma área muito vermelha ou com 'pontadas' de dor?" 
-                      time="09:42" 
+                      time="09:18" 
                       delay={1.5}
                     />
                     
                     <ChatMessage 
                       isUser 
                       text="No queixo está ardendo bastante e ficou bem vermelho." 
-                      time="09:43" 
+                      time="09:19" 
                       delay={2}
                     />
 
                      {/* Mensagem Final */}
                      <ChatMessage  
                       text={<span>Entendi. <strong>Vou alertar a Dra. agora mesmo</strong>. Evite passar produtos na área!</span>} 
-                      time="09:43" 
+                      time="09:19" 
                       delay={2.5}
                     />
                   </div>
