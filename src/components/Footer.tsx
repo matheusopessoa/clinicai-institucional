@@ -52,9 +52,6 @@ export const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400 dark:text-slate-500">
           <p>© {new Date().getFullYear()} Sous Clinic. Todos os direitos reservados.</p>
-          <p className="mt-2 text-[10px] opacity-70">
-            CNPJ: 56.544.618/0001-77 | 56.544.618 ANDRE VINICIUS CAMPOS LUCENA
-          </p>
         </div>
       </div>
     </footer>
