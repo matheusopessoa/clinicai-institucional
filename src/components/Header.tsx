@@ -1,21 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === "hero") {
@@ -38,10 +29,10 @@ export const Header = () => {
 
   return (
     <header className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <div 
+      <div
         className={`pointer-events-auto transition-all duration-300 ease-in-out
           ${isMenuOpen ? 'w-full max-w-lg rounded-2xl' : 'w-auto rounded-full'}
-          bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-lg shadow-black/5`}
+          bg-white/90 dark:bg-slate-900/90 md:backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-lg shadow-black/5`}
       >
         <div className="flex items-center justify-between px-8 py-3 md:py-4 gap-8">
           {/* Logo */}

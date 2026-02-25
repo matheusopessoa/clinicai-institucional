@@ -27,11 +27,11 @@ export const Screenshots = () => {
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-center">Plataforma de Gestão</h3>
               <div className="rounded-2xl border-2 border-dashed border-primary/30 bg-secondary/30 flex items-center justify-center gradient-card shadow-card overflow-hidden p-2">
-                <img 
-                  src="/dashboard.png" 
-                  alt="Sistema Dashboard" 
+                <img
+                  src="/dashboard.png"
+                  alt="Sistema Dashboard"
                   className="w-full h-auto max-h-[500px] max-w-full object-contain"
-                  loading="eager"
+                  loading="lazy"
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center">
@@ -49,6 +49,7 @@ export const Screenshots = () => {
                   src="/conversa-whatsapp.jpeg"
                   alt="Exemplo de conversa no WhatsApp com o Sous Clinic"
                   className="max-h-[600px] w-auto rounded-2xl border-2 border-dashed border-accent/30 p-1 bg-secondary/30"
+                  loading="lazy"
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center">

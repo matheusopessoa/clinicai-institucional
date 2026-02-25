@@ -58,7 +58,7 @@ export const FAQ = () => {
       <div className="container mx-auto px-4">
         <AnimateOnScroll animation="fadeInUp" delay={0}>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 dark:bg-rose-900/20 border border-rose-100 dark:border-rose-800/30 backdrop-blur-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50/90 dark:bg-rose-900/80 border border-rose-100 dark:border-rose-800/30 md:backdrop-blur-sm mb-6">
               <HelpCircle className="w-4 h-4 text-rose-500" />
               <span className="text-sm font-medium text-rose-600 dark:text-rose-400">
                 Perguntas Frequentes

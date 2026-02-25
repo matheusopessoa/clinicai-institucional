@@ -75,7 +75,7 @@ export const Pricing = () => {
                 </div>
               </div>
               
-              <div className="gradient-card p-8 md:p-10 rounded-[32px] border-2 border-rose-500/30 shadow-glow relative bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-rose-500/20 flex flex-col h-full">
+              <div className="gradient-card p-8 md:p-10 rounded-[32px] border-2 border-rose-500/30 shadow-glow relative bg-white/70 dark:bg-slate-900/70 md:backdrop-blur-sm transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-rose-500/20 flex flex-col h-full">
                 <div className="mb-8">
                   <div className="flex items-center gap-2 mb-2">
                     <Heart className="w-5 h-5 text-rose-500" />
@@ -130,7 +130,7 @@ export const Pricing = () => {
 
           {/* Plano STANDARD */}
           <AnimateOnScroll animation="fadeInUp" delay={200}>
-            <div className="gradient-card p-8 md:p-10 rounded-[32px] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-card bg-white/50 dark:bg-slate-900/30 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] h-full flex flex-col">
+            <div className="gradient-card p-8 md:p-10 rounded-[32px] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-card bg-white/70 dark:bg-slate-900/70 md:backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] h-full flex flex-col">
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <Zap className="w-5 h-5 text-slate-400" />
