@@ -32,7 +32,7 @@ export const Header = () => {
       <div
         className={`pointer-events-auto transition-all duration-300 ease-in-out
           ${isMenuOpen ? 'w-full max-w-lg rounded-2xl' : 'w-auto rounded-full'}
-          bg-white/90 dark:bg-slate-900/90 md:backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-lg shadow-black/5`}
+          bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-lg shadow-black/5`}
       >
         <div className="flex items-center justify-between px-8 py-3 md:py-4 gap-8">
           {/* Logo */}

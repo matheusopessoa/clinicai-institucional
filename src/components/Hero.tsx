@@ -43,9 +43,9 @@ export const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none transition-colors duration-300" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/5 dark:bg-rose-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none transition-colors duration-300" />
+      {/* Background decoration (sem blur para evitar custo em mobile/desktop) */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none transition-colors duration-300" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-500/5 dark:bg-rose-500/10 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none transition-colors duration-300" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -57,7 +57,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-left space-y-6 md:space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/50 dark:bg-slate-900/50 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-200 dark:border-slate-800 backdrop-blur-sm shadow-sm transition-colors duration-300">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
