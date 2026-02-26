@@ -12,6 +12,7 @@ import VerifyEmailCode from "./pages/VerifyEmailCode";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermosAgenteIA from "./pages/TermosAgenteIA";
 import NotFound from "./pages/NotFound";
+import PixelTracker from "./components/PixelTracker";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PixelTracker />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/register" element={<Register />} />
