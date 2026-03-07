@@ -11,6 +11,7 @@ import VerifyEmail from "./pages/VerifyEmail";
 import VerifyEmailCode from "./pages/VerifyEmailCode";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermosAgenteIA from "./pages/TermosAgenteIA";
+import ContratoProfissionalClinicaAcompanhamento from "./pages/ContratoProfissionalClinicaAcompanhamento";
 import NotFound from "./pages/NotFound";
 import PixelTracker from "./components/PixelTracker";
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/verify-email-code" element={<VerifyEmailCode />} />
             <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
             <Route path="/termos/agente-ia" element={<TermosAgenteIA />} />
+            <Route path="/profissional-aceita-clinica-fazer-acompanhamento-agendado" element={<ContratoProfissionalClinicaAcompanhamento />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
