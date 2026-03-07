@@ -16,7 +16,7 @@ export const Screenshots = () => {
               Esteja presente em toda a jornada do tratamento
             </h2>
             <p className="text-xl text-muted-foreground">
-              Acompanhe a recuperação em tempo real no painel, enquanto a IA cuida das dúvidas rotineiras no WhatsApp com rigor técnico.
+              Acompanhe a recuperação em tempo real, tenha um resumo visual do dia e formalize documentos com assinatura digital de validade jurídica.
             </p>
           </div>
         </AnimateOnScroll>
@@ -35,7 +35,7 @@ export const Screenshots = () => {
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center">
-                Gerencie pacientes, agendamentos e visualize relatórios em tempo real
+                Gerencie pacientes, visualize o resumo do dia e mantenha documentos assinados com segurança jurídica
               </p>
             </div>
           </AnimateOnScroll>

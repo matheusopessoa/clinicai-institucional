@@ -1,4 +1,4 @@
-import { Shield, Eye, Heart, TrendingUp, Users, Zap, Calendar, Smartphone } from "lucide-react";
+import { Shield, Heart, Users, Calendar, Smartphone, FileText, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -28,29 +28,29 @@ const features = [
   },
   {
     icon: Calendar,
-    title: "Agenda Inteligente",
-    description: "Link de agendamento online disponível 24h para seus pacientes.",
+    title: "Agenda Online (Plano Profissional)",
+    description: "Link de agendamento online 24h para pacientes, exclusivo do plano de R$ 299,90.",
     className: "md:col-span-2 bg-gradient-to-br from-rose-50 to-white dark:from-slate-900 dark:to-slate-800",
     delay: 0.4
+  },
+  {
+    icon: FileText,
+    title: "Assinatura Digital (Plano Profissional)",
+    description: "Assine documentos com validade jurídica, sem papel e com rastreabilidade, no plano de R$ 299,90.",
+    className: "md:col-span-1 bg-white dark:bg-slate-900",
+    delay: 0.5
+  },
+  {
+    icon: BarChart3,
+    title: "Resumo Visual do Dia",
+    description: "Tenha um panorama claro da rotina diária para decisões mais rápidas e objetivas.",
+    className: "md:col-span-1 bg-white dark:bg-slate-900",
+    delay: 0.6
   },
   {
     icon: Users,
     title: "Multi-Profissional",
     description: "Acessos individuais com permissões personalizadas para sua equipe.",
-    className: "md:col-span-1 bg-white dark:bg-slate-900",
-    delay: 0.5
-  },
-  {
-    icon: Zap,
-    title: "Setup Rápido",
-    description: "Comece a usar em minutos. Interface intuitiva e moderna.",
-    className: "md:col-span-1 bg-white dark:bg-slate-900",
-    delay: 0.6
-  },
-  {
-    icon: TrendingUp,
-    title: "Dashboards",
-    description: "Métricas financeiras e de performance claras para decisão.",
     className: "md:col-span-1 bg-white dark:bg-slate-900",
     delay: 0.7
   }
