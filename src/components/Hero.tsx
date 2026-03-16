@@ -66,17 +66,14 @@ export const Hero = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
-              Não deixe sua paciente <br />
+              Gerencie sua clínica e  <br />
               <span className="font-serif italic font-medium text-5xl md:text-6xl lg:text-7xl text-rose-500 dark:text-rose-400 pr-2 transition-colors duration-300">
-                desamparada
+                fidelize seus pacientes
               </span>
-              <br />
-              após a consulta.
             </h1>
 
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl transition-colors duration-300">
-              Transforme prescrições em <strong className="text-rose-600 dark:text-rose-100 font-medium transition-colors duration-300">acompanhamento automático</strong> no WhatsApp. 
-              Garanta adesão ao tratamento e fidelidade.
+              Com o sistema de mais fácil uso e completo, com <strong className="text-rose-600 dark:text-rose-100 font-medium transition-colors duration-300">acompanhamento automático com inteligência artificial</strong> no WhatsApp. 
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">

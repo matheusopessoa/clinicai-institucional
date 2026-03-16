@@ -1,4 +1,4 @@
-import { Shield, Heart, Users, Calendar, Smartphone, FileText, BarChart3 } from "lucide-react";
+import { Shield, Heart, Users, Calendar, Smartphone, FileText, BarChart3, BoxIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -6,53 +6,53 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: Shield,
-    title: "Gestão Integrada",
-    description: "Prontuários, agenda e financeiro em um único lugar seguro.",
-    className: "md:col-span-2 bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-950",
-    delay: 0.1
-  },
-  {
     icon: Smartphone,
     title: "IA no WhatsApp",
-    description: "Assistente virtual que responde pacientes e confirma agendamentos.",
+    description: "Assistente virtual que confirma as consultas e ajuda a gerir seus agendamentos com mais eficiência.",
     className: "md:col-span-1 bg-white dark:bg-slate-900",
     delay: 0.2
   },
   {
     icon: Heart,
-    title: "Acompanhamento Pós-Consulta Automatizado",
-    description: "Mensagens de cuidado pós-procedimento que lhe ajudam a cuidar, encantar e fidelizar.",
-    className: "md:col-span-1 bg-white dark:bg-slate-900",
+    title: "Acompanhamento Pós-Procedimento Automatizado com IA",
+    description: "Conversa e cuida do seu paciente após o procedimento, para garantir a melhor experiência, diferenciação da sua clínica e fidelização do paciente.",
+    className: "md:col-span-2 bg-gradient-to-br from-rose-50 to-yellow-50 dark:from-slate-500 dark:to-slate-600",
     delay: 0.3
   },
   {
     icon: Calendar,
-    title: "Agenda Online (Plano Profissional)",
-    description: "Link de agendamento online 24h para pacientes, exclusivo do plano de R$ 299,90.",
+    title: "Agenda Online",
+    description: "Link de agendamento online 24h para facilitar o agendamento de voltas, avaliações e procedimentos mais simples.",
     className: "md:col-span-2 bg-gradient-to-br from-rose-50 to-white dark:from-slate-900 dark:to-slate-800",
     delay: 0.4
   },
   {
     icon: FileText,
-    title: "Assinatura Digital (Plano Profissional)",
-    description: "Assine documentos com validade jurídica, sem papel e com rastreabilidade, no plano de R$ 299,90.",
+    title: "Assinatura Digital",
+    description: "Assine documentos com validade jurídica, sem papel e com rastreabilidade, para garantir a validade dos seus procedimentos.",
     className: "md:col-span-1 bg-white dark:bg-slate-900",
     delay: 0.5
+  },
+  {
+    icon: BoxIcon,
+    title: "Estoque",
+    description: "Gerencie o estoque de produtos e serviços. Facilita a gestão de compras e de uso otimizado de produtos mais próximos da validade.",
+    className: "md:col-span-1 bg-white dark:bg-slate-900",
+    delay: 0.6
   },
   {
     icon: BarChart3,
     title: "Resumo Visual do Dia",
     description: "Tenha um panorama claro da rotina diária para decisões mais rápidas e objetivas.",
     className: "md:col-span-1 bg-white dark:bg-slate-900",
-    delay: 0.6
+    delay: 0.7
   },
   {
     icon: Users,
     title: "Multi-Profissional",
-    description: "Acessos individuais com permissões personalizadas para sua equipe.",
+    description: "Acessos individuais ilimitados com permissões personalizadas para sua equipe.",
     className: "md:col-span-1 bg-white dark:bg-slate-900",
-    delay: 0.7
+    delay: 0.8
   }
 ];
 

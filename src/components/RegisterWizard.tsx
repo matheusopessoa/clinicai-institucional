@@ -4,11 +4,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChevronLeft, ChevronRight, Check, Building, User, Loader2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Check, Building, User, Loader2, Eye, EyeOff } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Progress } from "./ui/progress";
 import { Alert, AlertDescription } from "./ui/alert";
@@ -18,7 +17,6 @@ import {
   personalInfoSchema,
   registrationSchema,
   registerUser,
-  businessTypeOptions,
   formatPhoneNumber,
   type ClinicInfo,
   type PersonalInfo,
@@ -47,20 +45,23 @@ export function RegisterWizard() {
   const plan = searchParams.get("plan");
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<RegistrationData>({
+  const form = useForm<RegistrationData & { confirm_password?: string }>({
     resolver: zodResolver(registrationSchema),
     mode: "onChange",
     defaultValues: {
       business_name: "",
-      business_type: undefined,
+      business_type: "clinic",
       specialty: "",
       number_of_employees: undefined,
       full_name: "",
       email: "",
       phone_number_id: "",
       password: "",
+      confirm_password: "",
     },
   });
 
@@ -77,22 +78,17 @@ export function RegisterWizard() {
     if (currentStep === 1) {
       // Validação do passo 1 - apenas campos obrigatórios
       const hasBusinessName = currentValues.business_name && currentValues.business_name.trim().length >= 2;
-      const hasBusinessType = currentValues.business_type &&
-                             (currentValues.business_type === 'clinic' ||
-                              currentValues.business_type === 'consulting_room' ||
-                              currentValues.business_type === 'hospital' ||
-                              currentValues.business_type === 'other');
 
-
-      return hasBusinessName && hasBusinessType && !currentErrors.business_name && !currentErrors.business_type;
+      return hasBusinessName && !currentErrors.business_name;
     } else if (currentStep === 2) {
       // Validação do passo 2 - usando apenas validação do Zod
       const hasFullName = currentValues.full_name && currentValues.full_name.trim().length >= 2;
       const hasEmail = currentValues.email && /^[^\s@]+@[^\s@]+$/.test(currentValues.email);
       const hasPhone = currentValues.phone_number_id && currentValues.phone_number_id.trim().length > 0;
       const hasPassword = currentValues.password && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(currentValues.password) && currentValues.password.length >= 8;
+      const passwordsMatch = currentValues.password === currentValues.confirm_password;
 
-      return hasFullName && hasEmail && hasPhone && hasPassword &&
+      return hasFullName && hasEmail && hasPhone && hasPassword && passwordsMatch &&
              !currentErrors.full_name && !currentErrors.email &&
              !currentErrors.phone_number_id && !currentErrors.password;
     }
@@ -112,11 +108,13 @@ export function RegisterWizard() {
     }
   };
 
-  const onSubmit = async (data: RegistrationData) => {
+  const onSubmit = async (data: RegistrationData & { confirm_password?: string }) => {
     setIsSubmitting(true);
 
     try {
-      await registerUser(data);
+      // Remover campos extras que o backend não espera
+      const { confirm_password, ...registrationData } = data;
+      await registerUser(registrationData);
 
       // Redirecionar diretamente para verificação de email, mantendo o plano na URL
       const planParam = plan ? `&plan=${plan}` : "";
@@ -198,7 +196,7 @@ export function RegisterWizard() {
                   <Input
                     id="business_name"
                     {...register("business_name")}
-                    placeholder="Ex: Clínica Saúde & Bem-Estar"
+                    placeholder="Ex: Clínica Beleza+"
                     className="h-11 border-border/60 focus:border-primary/50 transition-all"
                   />
                   {errors.business_name && (
@@ -207,33 +205,11 @@ export function RegisterWizard() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="business_type" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tipo de Negócio *</Label>
-                  <Select
-                    onValueChange={(value) => setValue("business_type", value as any)}
-                    value={watchedValues.business_type}
-                  >
-                    <SelectTrigger className="h-11 border-border/60">
-                      <SelectValue placeholder="Selecione o tipo" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {businessTypeOptions.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {errors.business_type && (
-                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.business_type.message}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="specialty" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Especialidade Principal</Label>
                   <Input
                     id="specialty"
                     {...register("specialty")}
-                    placeholder="Ex: Cardiologia, Pediatria, etc."
+                    placeholder="Ex: Emagrecimento, Estética Facial, etc."
                     className="h-11 border-border/60"
                   />
                   {errors.specialty && (
@@ -248,7 +224,7 @@ export function RegisterWizard() {
                     type="number"
                     min="1"
                     {...register("number_of_employees", { valueAsNumber: true })}
-                    placeholder="Ex: 5"
+                    placeholder="Ex: 2"
                     className="h-11 border-border/60"
                   />
                   {errors.number_of_employees && (
@@ -318,15 +294,51 @@ export function RegisterWizard() {
 
                 <div className="space-y-2">
                   <Label htmlFor="password" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Senha *</Label>
-                  <Input
-                    id="password"
-                    type="password"
-                    {...register("password")}
-                    placeholder="Mínimo 8 caracteres"
-                    className="h-11 border-border/60"
-                  />
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      {...register("password")}
+                      placeholder="Mínimo 8 caracteres"
+                      className="h-11 border-border/60 pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
                   {errors.password && (
                     <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">{errors.password.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="confirm_password" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Confirmar Senha *</Label>
+                  <div className="relative">
+                    <Input
+                      id="confirm_password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      {...register("confirm_password")}
+                      placeholder="Repita sua senha"
+                      className={`h-11 border-border/60 pr-10 ${
+                        watchedValues.confirm_password && watchedValues.password !== watchedValues.confirm_password
+                          ? "border-red-500 focus:ring-red-500"
+                          : ""
+                      }`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                  {watchedValues.confirm_password && watchedValues.password !== watchedValues.confirm_password && (
+                    <p className="text-[10px] font-bold text-red-500 mt-1 uppercase tracking-tight">As senhas não coincidem</p>
                   )}
                 </div>
 

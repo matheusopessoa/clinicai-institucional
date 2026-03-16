@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Header = () => {
@@ -22,7 +21,7 @@ export const Header = () => {
   };
 
   const navItems = [
-    { id: "features", label: "Benefícios" },
+    { id: "features", label: "Funcionalidades" },
     { id: "demo", label: "Demo" },
     { id: "planos", label: "Planos" },
   ];
@@ -61,9 +60,19 @@ export const Header = () => {
             ))}
           </nav>
 
+          {/* Vertical Separator */}
+          <div className="hidden md:block w-px h-6 bg-slate-200 dark:bg-slate-800 shrink-0 mx-2" />
+
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
-            <ThemeToggle />
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="rounded-full px-4 text-muted-foreground hover:text-[#00A3FF] transition-colors"
+            >
+              <a href="https://app.sousclinic.com">Entrar</a>
+            </Button>
             <Button
               asChild
               variant="default"
@@ -107,10 +116,6 @@ export const Header = () => {
                     {item.label}
                   </button>
                 ))}
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-sm font-medium text-muted-foreground">Tema</span>
-                  <ThemeToggle />
-                </div>
                 <div className="flex flex-col gap-3 mt-2">
                   <Button
                     asChild
@@ -126,9 +131,9 @@ export const Header = () => {
                     variant="ghost"
                     className="w-full rounded-full"
                   >
-                    <Link to="/login" onClick={() => setIsMenuOpen(false)}>
+                    <a href="https://app.sousclinic.com" onClick={() => setIsMenuOpen(false)}>
                       Área do Assinante
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               </nav>
