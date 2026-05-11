@@ -5,6 +5,9 @@ const institutions = [
   { name: "Parquetec", logo: "/confiam_em_nos/parquetec.png" },
   { name: "Porto Digital", logo: "/confiam_em_nos/portodigital.png" },
   { name: "Web Summit", logo: "/confiam_em_nos/websummit.png" },
+  { name: "Sebrae", logo: "/confiam_em_nos/sebrae.png" },
+  { name: "CEIA", logo: "/confiam_em_nos/ceia.png" },
+  { name: "Hub Goiás", logo: "/confiam_em_nos/hubgo.png" },
 ];
 
 const LogoTrack = ({ reversed = false }: { reversed?: boolean }) => (
