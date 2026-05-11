@@ -69,9 +69,14 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: url('/cursor-default.svg') 3 1, default;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  a, button, [role="button"], input[type="submit"], input[type="button"],
+  select, label[for], .cursor-pointer {
+    cursor: url('/cursor-pointer.svg') 14 14, pointer;
   }
 }
 
