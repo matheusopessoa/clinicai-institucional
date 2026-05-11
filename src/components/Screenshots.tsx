@@ -140,7 +140,7 @@ export const Screenshots = () => {
                 <Smartphone className="w-4 h-4 text-[#f43f5e]" />
               </div>
               <span className="text-sm font-semibold text-[#0f172a] dark:text-slate-100">
-                100% compatível com celular
+                Aplicativo mobile com todas as funcionalidades da plataforma
               </span>
             </div>
 
