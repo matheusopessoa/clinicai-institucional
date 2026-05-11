@@ -1,43 +1,168 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <title>Sous Clinic - Acompanhamento Pós-Consulta Automatizado com IA para Esteticistas</title>
-    <meta name="description" content="Plataforma completa para gestão de clínicas. Cuidamos não só de você, mas também dos seus pacientes." />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="theme-color" content="#f43f5e" />
+
+    <!-- Primary SEO -->
+    <title>Sous Clinic — Software de Gestão para Clínicas Estéticas com IA no WhatsApp</title>
+    <meta name="description" content="Gerencie sua clínica estética com IA no WhatsApp: confirmação automática de consultas, acompanhamento pós-procedimento, agenda online 24h, prontuário eletrônico e assinatura digital. 7 dias grátis." />
+    <meta name="keywords" content="software clínica estética, gestão clínica estética, IA pós-procedimento, agendamento online estética, confirmação automática WhatsApp, prontuário eletrônico estética, assinatura digital clínica, sistema para esteticistas, CRM estética" />
     <meta name="author" content="Sous Clinic" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sousclinic.com" />
 
-    <meta property="og:title" content="Sous Clinic - Acompanhamento Pós-Consulta Automatizado com IA para Esteticistas" />
-    <meta property="og:description" content="Plataforma completa para gestão de clínicas. Cuidamos não só de você, mas também dos seus pacientes." />
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/compartilhar.png" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Sous Clinic" />
+    <meta property="og:url" content="https://sousclinic.com" />
+    <meta property="og:title" content="Sous Clinic — Software de Gestão para Clínicas Estéticas com IA no WhatsApp" />
+    <meta property="og:description" content="Gerencie sua clínica estética com IA no WhatsApp: confirmação automática de consultas, acompanhamento pós-procedimento, agenda online 24h, prontuário eletrônico e assinatura digital. 7 dias grátis." />
+    <meta property="og:image" content="https://sousclinic.com/compartilhar.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sous Clinic — Software de gestão para clínicas estéticas" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sousclinic" />
+    <meta name="twitter:title" content="Sous Clinic — Software de Gestão para Clínicas Estéticas com IA no WhatsApp" />
+    <meta name="twitter:description" content="Gerencie sua clínica estética com IA no WhatsApp: confirmação automática de consultas, acompanhamento pós-procedimento, agenda online 24h e muito mais. 7 dias grátis." />
+    <meta name="twitter:image" content="https://sousclinic.com/compartilhar.png" />
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sous Clinic",
+  "legalName": "Sous Clinic LTDA",
+  "url": "https://sousclinic.com",
+  "logo": "https://sousclinic.com/logo.png",
+  "description": "Software de gestão para clínicas estéticas com inteligência artificial no WhatsApp.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-81-99549-7487",
+    "contactType": "customer support",
+    "availableLanguage": "Portuguese"
+  },
+  "sameAs": [
+    "https://instagram.com/sousclinic",
+    "https://app.sousclinic.com"
+  ]
+}
+    </script>
+
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Sous Clinic",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "description": "Plataforma completa de gestão para clínicas de estética e beauty techs. Agendamento, financeiro e prontuário eletrônico.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "BRL"
-  },
+  "operatingSystem": "Web, iOS, Android",
+  "url": "https://sousclinic.com",
+  "description": "Plataforma completa de gestão para clínicas de estética: agendamento online, IA no WhatsApp para acompanhamento pós-procedimento, prontuário eletrônico, assinatura digital, gestão financeira e de estoque.",
+  "screenshot": "https://sousclinic.com/dashboard.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Plano Standard",
+      "price": "149.90",
+      "priceCurrency": "BRL",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "149.90",
+        "priceCurrency": "BRL",
+        "unitCode": "MON"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Plano Profissional",
+      "price": "299.90",
+      "priceCurrency": "BRL",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "299.90",
+        "priceCurrency": "BRL",
+        "unitCode": "MON"
+      }
+    }
+  ],
   "brand": {
     "@type": "Brand",
     "name": "Sous Clinic"
   },
-  "sameAs": [
-    "https://instagram.com/sousclinic",
-    "https://euesteticista.blog"
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "48"
+  }
+}
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A Inteligência Artificial da Sous Clinic substitui o contato com profissionais de saúde?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sous Clinic atua como uma extensão da sua equipe clínica. Ela cuida do monitoramento pós procedimentos, permitindo que o profissional de saúde tenha mais tempo para focar no atendimento. A IA não tira dúvidas e nem sugere nada, apenas realiza triagens e retorna o resumo da conversa para o profissional, que tomará a decisão final."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É seguro deixar uma IA falar com meus pacientes? Ela pode inventar informações?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A segurança é nosso pilar principal. Utilizamos uma Engenharia de Contexto Proprietária. A IA só responde com base no contexto clínico capturado na prescrição e nos protocolos definidos pelo profissional. Ela não alucina nem inventa tratamentos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Sous Clinic é apenas para agendamento de consultas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Somos muito mais do que apenas agendamentos. Nos diferenciamos dos sistemas tradicionais porque focamos na área da estética, na fidelização e na jornada de recuperação do paciente, e não apenas nas tarefas administrativas de agenda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Na minha clínica existe mais de um profissional, é possível usar o Sous Clinic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Com certeza. O Sous Clinic foi desenhado para escalar. O plano Profissional suporta até 20 usuários e 3 unidades diferentes. Cada profissional possui um login individual com acesso exclusivo aos seus pacientes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Sous Clinic fornece treinamento para utilização da plataforma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Ao ter a Sous Clinic como parceira, toda a sua equipe recebe treinamento para utilizar a plataforma na sua melhor performance. Esse treinamento pode ocorrer de forma presencial ou remota."
+      }
+    }
   ]
 }
     </script>
+
     <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
@@ -54,7 +179,6 @@
   </head>
 
   <body>
-    <!-- Meta Pixel Code (Fallback) -->
     <noscript>
       <img height="1" width="1" style="display:none"
            src="https://www.facebook.com/tr?id=769249932499384&ev=PageView&noscript=1" />
