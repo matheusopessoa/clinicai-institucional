@@ -10,30 +10,33 @@ const institutions = [
   { name: "Hub Goiás", logo: "/confiam_em_nos/hubgo.png" },
 ];
 
-const LogoTrack = ({ reversed = false }: { reversed?: boolean }) => (
-  <div className="flex gap-16 items-center" style={{ animation: `${reversed ? 'marqueeReverse' : 'marquee'} 28s linear infinite` }}>
-    {[...institutions, ...institutions].map((inst, i) => (
+// 1. Criamos um subcomponente para um "Grupo" de logos.
+// O segredo matemático: o padding-right (pr) precisa ser EXATAMENTE igual ao gap.
+// Isso garante que quando a lista duplicar, a distância entre a lista 1 e a lista 2 seja perfeita.
+const LogoGroup = () => (
+  <div className="flex items-center gap-8 md:gap-16 pr-8 md:pr-16">
+    {institutions.map((inst, i) => (
       <div
         key={`${inst.name}-${i}`}
-        className="flex-shrink-0 flex items-center justify-center"
-        style={{ width: 140, height: 56 }}
+        className="flex-shrink-0 flex items-center justify-center w-[140px] h-[56px]"
       >
         <img
           src={inst.logo}
           alt={inst.name}
-          className="max-w-full max-h-full object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-          style={{ filter: "grayscale(1) brightness(0.7)", transition: "all 0.5s ease" }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLImageElement).style.filter = "grayscale(0) brightness(1)";
-            (e.currentTarget as HTMLImageElement).style.opacity = "1";
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLImageElement).style.filter = "grayscale(1) brightness(0.7)";
-            (e.currentTarget as HTMLImageElement).style.opacity = "0.6";
-          }}
+          // Substituí os eventos JS por classes utilitárias do Tailwind
+          className="max-w-full max-h-full object-contain cursor-pointer transition-all duration-500 grayscale opacity-60 brightness-75 hover:grayscale-0 hover:opacity-100 hover:brightness-100"
         />
       </div>
     ))}
+  </div>
+);
+
+const LogoTrack = ({ reversed = false }: { reversed?: boolean }) => (
+  // 2. Adicionamos o 'w-max' para a div esticar o quanto precisar.
+  <div className={`flex w-max ${reversed ? "marquee-reverse" : "marquee"}`}>
+    {/* 3. Renderizamos o grupo duas vezes. Assim o translateX(-50%) move exatamente 1 grupo inteiro */}
+    <LogoGroup />
+    <LogoGroup />
   </div>
 );
 
@@ -72,8 +75,7 @@ export const TrustedBy = () => {
 
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] dark:text-slate-100 leading-tight">
             Instituições que{" "}
-            <span className="italic text-[#f43f5e]">confiam</span>{" "}
-            em nós
+            <span className="italic text-[#f43f5e]">confiam</span> em nós
           </h2>
 
           <p className="mt-3 text-[#64748b] dark:text-slate-400 text-base max-w-md mx-auto">
@@ -90,10 +92,11 @@ export const TrustedBy = () => {
           className="relative"
         >
           {/* Fade masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-[#f8fafc] dark:from-slate-900 to-transparent" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-[#f8fafc] dark:from-slate-900 to-transparent" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-r from-[#f8fafc] dark:from-slate-900 to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 pointer-events-none bg-gradient-to-l from-[#f8fafc] dark:from-slate-900 to-transparent" />
 
-          <div className="overflow-hidden py-4">
+          {/* Wrapper flex para garantir comportamento linear */}
+          <div className="overflow-hidden py-4 flex">
             <LogoTrack />
           </div>
         </motion.div>
@@ -108,7 +111,6 @@ export const TrustedBy = () => {
         />
       </div>
 
-      {/* Keyframes injected via style tag */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
@@ -117,6 +119,17 @@ export const TrustedBy = () => {
         @keyframes marqueeReverse {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
+        }
+        .marquee {
+          /* Duração linear e constante. Se você mudar a duração no mobile, ele passará "voando" pela tela. */
+          animation: marquee 35s linear infinite;
+        }
+        .marquee-reverse {
+          animation: marqueeReverse 35s linear infinite;
+        }
+        /* Pausa a animação quando o usuário passa o mouse por cima (boa prática de UX) */
+        .marquee:hover, .marquee-reverse:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
