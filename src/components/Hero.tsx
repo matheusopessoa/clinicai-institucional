@@ -35,7 +35,7 @@ const ChatMessage = ({
 );
 
 // ─── Morphing word — cycles through verbs ────────────────────────────────────
-const MORPHING_WORDS = ["cuida", "fideliza", "encanta", "escala"];
+const MORPHING_WORDS = ["cuida dos", "fideliza", "encanta", "conquista"];
 
 const MorphingWord = () => {
   const [index, setIndex] = useState(0);

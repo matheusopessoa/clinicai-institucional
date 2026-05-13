@@ -285,7 +285,7 @@ export const Pricing = () => {
           transition={{ delay: 0.4 }}
           className="text-center text-xs text-[#64748b] dark:text-slate-500 mt-4"
         >
-          7 dias grátis em todos os planos. Sem necessidade de cartão de crédito.
+          7 dias grátis em todos os planos.
         </motion.p>
       </div>
     </section>
